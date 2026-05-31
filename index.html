@@ -116,6 +116,7 @@
     // You may move this JS to another file if you wish
     window.onerror = function(message, source, lineno, colno, error) {
       console.log("error!");
+      console.error(error);
       return true;
     };
 
