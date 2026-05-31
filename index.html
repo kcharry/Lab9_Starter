@@ -102,6 +102,80 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.log("Global error caught!");
+      return true;
+    };
+
+    errorBtns[0].addEventListener('click', () => {
+      console.log("Testing console.log()");
+    });
+
+    errorBtns[1].addEventListener('click', () => {
+      console.error("Testing console.error()");
+    });
+
+    errorBtns[2].addEventListener('click', () => {
+      console.count("Testing console.count()");
+    });
+
+    errorBtns[3].addEventListener('click', () => {
+      console.warn("Testing console.warn()");
+    });
+
+    errorBtns[4].addEventListener('click', () => {
+      console.assert(false, "Testing console.assert()");
+    });
+
+    errorBtns[5].addEventListener('click', () => {
+      console.clear();
+    });
+
+    errorBtns[6].addEventListener('click', (e) => {
+      console.dir(e.target);
+    });
+
+    errorBtns[7].addEventListener('click', (e) => {
+      console.dirxml(e.target);
+    });
+
+    errorBtns[8].addEventListener('click', () => {
+      console.group("Test Group");
+      console.log("test 1");
+      console.log("test 2");
+    });
+
+    errorBtns[9].addEventListener('click', () => {
+      console.groupEnd();
+    });
+
+    errorBtns[10].addEventListener('click', () => {
+      const students = [
+        { name: "Alice", major: "Computer Science", grade: "A" },
+        { name: "Bob", major: "Math", grade: "B+" },
+        { name: "Charlie", major: "Physics", grade: "A-" },
+        { name: "Diana", major: "Biology", grade: "B" }
+      ];
+
+      console.table(students);
+    });
+
+    errorBtns[11].addEventListener('click', () => {
+      console.time("Test Timer)"); 
+    });
+
+    errorBtns[12].addEventListener('click', () => {
+      console.timeEnd("Test Timer)");
+    });
+    
+    errorBtns[13].addEventListener('click', () => {
+      console.trace("Testing console.trace()");
+    });
+    
+    errorBtns[14].addEventListener('click', () => {
+      nonexistentFunction();
+    });
+
   </script>
 </body>
 
