@@ -95,7 +95,19 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      
+      // output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      try {
+        if (firstNum === "" || secondNum ==="") {
+          throw new Error("Both inputs required");
+        }
+        output.innerHtml = eval(`${firstNum} ${operator} ${secondNum}`);
+      } catch (error) {
+        console.error(error);
+        output.innerHTML = error.message;
+      } finally {
+        console.log("Calculation attempted.");
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
@@ -103,7 +115,7 @@
     // Start your code here
     // You may move this JS to another file if you wish
     window.onerror = function(message, source, lineno, colno, error) {
-      console.log("Global error caught!");
+      console.log("error!");
       return true;
     };
 
@@ -173,7 +185,7 @@
     });
     
     errorBtns[14].addEventListener('click', () => {
-      nonexistentFunction();
+      aintGonnaWork('lol');
     });
 
   </script>
