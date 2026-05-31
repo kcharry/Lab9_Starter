@@ -88,6 +88,13 @@
   </main>
 
   <script>
+    class DivideError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "DivideError";
+      }
+    }
+
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -101,7 +108,12 @@
         if (firstNum === "" || secondNum ==="") {
           throw new Error("Both inputs required");
         }
-        output.innerHtml = eval(`${firstNum} ${operator} ${secondNum}`);
+
+        if (operator === '/' && secondNum === "0") {
+          throw new DivideError("Cannot divide by zero");
+        }
+
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
       } catch (error) {
         console.error(error);
         output.innerHTML = error.message;
