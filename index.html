@@ -127,7 +127,7 @@
     // Start your code here
     // You may move this JS to another file if you wish
     window.onerror = function(message, source, lineno, colno, error) {
-      console.log("error!");
+      console.log("global error!");
       console.error(error);
       return true;
     };
@@ -201,6 +201,14 @@
       aintGonnaWork('lol');
     });
 
+  </script>
+
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "a1b90ffb322c454aa3ac1825bc8b3483"
+      // for more configuration options, see https://docs.trackjs.com
+    });
   </script>
 </body>
 
